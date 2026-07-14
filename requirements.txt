@@ -1,0 +1,6 @@
+streamlit
+python-docx
+python-pptx
+PyMuPDF
+Pillow
+openai
