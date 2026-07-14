@@ -28,7 +28,6 @@ def get_secret(name, default=None):
     except Exception:
         return os.getenv(name, default)
 
-```python
 APP_PASSWORD = ***"APP_PASSWORD", "")
 
 def check_password():
