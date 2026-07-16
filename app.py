@@ -130,7 +130,9 @@ def docx_extract(file, category):
             pass
 
     return item
-    def pptx_extract(file, category):
+
+
+def pptx_extract(file, category):
     data = file.read()
     presentation = Presentation(io.BytesIO(data))
 
@@ -291,20 +293,18 @@ def ai_rewrite(blocks, notes):
             messages=[
                 {
                     "role": "system",
-                    "content": "Ricostruisci dispense universitarie fedeli, complete e chiare."
-                },
+                    "content": "Ricostruisci dispense universitarie fedeli, complete e chiare."},
                 {
                     "role": "user",
-                    "content": prompt
-                }
-            ],
-            temperature=0.2
-        )
+                    "content": prompt}],
+            temperature=0.2)
 
         outputs.append(response.choices[0].message.content)
 
     return "\n\n".join(outputs)
-    def add_paragraph(document, text, size=10, bold=False):
+
+
+def add_paragraph(document, text, size=10, bold=False):
     paragraph = document.add_paragraph()
     run = paragraph.add_run(text)
     run.font.name = "Aptos"
@@ -486,5 +486,4 @@ if st.button("Genera documento Word", type="primary"):
         "Scarica documento Word",
         result,
         "documento_unico_studio.docx",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    )
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
